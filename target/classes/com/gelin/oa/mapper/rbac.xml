@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="rbacmapper" >
+    <select id="selectNodeByUserId" parameterType="Long" resultType="com.gelin.oa.pojo.Node">
+        select e.* from sys_node e join sys_role_node t on e.node_id=t.node_id join sys_role_user r on r.role_id= t.role_id
+        where user_id=#{userId}
+    </select>
+</mapper>
